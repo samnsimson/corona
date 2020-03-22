@@ -1,16 +1,11 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
+import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import "./custom.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -29,7 +24,7 @@ const Layout = ({ children }) => {
       <div
         style={{
           margin: `0 auto`,
-          maxWidth: 960,
+          maxWidth: 1140,
           padding: `0 1.0875rem 1.45rem`,
         }}
       >

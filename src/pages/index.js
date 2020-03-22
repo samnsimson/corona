@@ -1,21 +1,46 @@
-import React from "react"
-import { Link } from "gatsby"
-
+import React, { Component } from "react"
+import { Container, Row, Col } from "reactstrap"
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import PlotGenerator from "../components/plotGenerator"
+import TotalActiveCases from "../components/totalActiveCases"
+import TotalCuredCases from "../components/totalCuredCases"
+import TotalDeadCases from "../components/totalDeadCases"
+import TotalDataInDoughnut from "../components/totalDataInDoughnut"
+import CoronaChecker from "../components/CoronaChecker"
+import AboutCorona from "../components/AboutCorona"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+export default class index extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
 
-export default IndexPage
+  componentDidMount() {}
+
+  render() {
+    return (
+      <Layout>
+        <SEO title="Home | Corona Update" />
+        <Row>
+          <Container>
+            <CoronaChecker />
+            <Row>
+              <Col md="4">
+                <TotalDataInDoughnut />
+                <AboutCorona />
+              </Col>
+              <Col md="8">
+                <Row className="mt-5">
+                  <TotalActiveCases />
+                  <TotalCuredCases />
+                  <TotalDeadCases />
+                </Row>
+              </Col>
+            </Row>
+          </Container>
+        </Row>
+      </Layout>
+    )
+  }
+}
