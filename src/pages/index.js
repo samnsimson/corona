@@ -20,7 +20,7 @@ export default class index extends Component {
   render() {
     return (
       <Layout>
-        <SEO title="Home | Corona Update" />
+        <SEO title="Corona in India Visualized" />
         <Row>
           <Container>
             <CoronaChecker />

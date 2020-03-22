@@ -58,7 +58,9 @@ export default class totalDataInDoughnut extends React.Component {
 
 	fetchDoughnutData = async () => {
 		try {
-			const data = await axios.get("http://localhost:3333/api/sum")
+			const data = await axios.get(
+				"https://coronavizserver.herokuapp.com/api/sum"
+			)
 			return data
 		} catch (err) {
 			console.log(err)

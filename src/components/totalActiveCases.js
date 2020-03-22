@@ -48,7 +48,7 @@ export default class totalActiveCases extends React.Component {
 
 	getActiveCases = async () => {
 		try {
-			const data = await axios.get("http://localhost:3333/api/")
+			const data = await axios.get("https://coronavizserver.herokuapp.com/api/")
 			return data
 		} catch (err) {
 			console.log(err)
