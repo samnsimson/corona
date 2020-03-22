@@ -17,7 +17,9 @@ export default class AboutCorona extends React.Component {
 
 	fetchData = async () => {
 		try {
-			const data = await axios.get("http://localhost:3333/api/intro")
+			const data = await axios.get(
+				`https://coronavizserver.herokuapp.com/api/intro`
+			)
 			this.setState({
 				description: data.data,
 			})
