@@ -15,6 +15,13 @@ export default class AboutCorona extends React.Component {
 		this.fetchData()
 	}
 
+	style = {
+		cards: {
+			backgroundColor: "rgba(215, 236, 251, 0.3)",
+			borderRadius: "0px",
+		},
+	}
+
 	fetchData = async () => {
 		try {
 			const data = await axios.get(
@@ -32,7 +39,7 @@ export default class AboutCorona extends React.Component {
 		return (
 			<Row>
 				<Col sm="12">
-					<Card>
+					<Card style={this.style.cards}>
 						<CardBody>
 							<CardTitle>
 								<strong>About CORONA (COVID-19)</strong>

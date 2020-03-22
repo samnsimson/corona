@@ -1,7 +1,15 @@
 import React from "react"
 import Slider from "react-slick"
 import { Link } from "gatsby"
-import { ButtonGroup, Input, Button, Row, Col, Progress } from "reactstrap"
+import {
+	ButtonGroup,
+	Input,
+	Badge,
+	Button,
+	Row,
+	Col,
+	Progress,
+} from "reactstrap"
 import "../../node_modules/slick-carousel/slick/slick.css"
 import "../../node_modules/slick-carousel/slick/slick-theme.css"
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
@@ -14,12 +22,13 @@ export default class QuizSlider extends React.Component {
 			sum: "",
 			percentage: "",
 			quizResultArray: [
-				"You are less likely to be affected/get affected by COVID-19",
+				"You show very less symptoms. It is less likely that you are being affected by COVID-19",
 				"You are showing mild symptoms of COVID-19. You are likely to be affected by the virus",
-				"You show strong symptoms related to COVID-19. Please consult a doctor!",
+				"You are vulnerable to the virus and you show strong symptoms related to COVID-19.",
 			],
 			progressBg: "",
 			resultToDisplay: "",
+			advice: [],
 		}
 		this.tempValueArray = []
 		this.resultantArray = []
@@ -74,10 +83,10 @@ export default class QuizSlider extends React.Component {
 							this.resultantArray.push(30)
 							break
 						case "yes":
-							this.resultantArray.push(15)
+							this.resultantArray.push(20)
 							break
 						case "no":
-							this.resultantArray.push(5)
+							this.resultantArray.push(0)
 							break
 						default:
 							this.resultantArray.push(0)
@@ -100,24 +109,43 @@ export default class QuizSlider extends React.Component {
 	}
 
 	calcPercentage = sum => {
-		let percentage = Math.floor((sum / 162) * 100)
+		let percentage = Math.floor((sum / 192) * 100)
 		let report = "",
-			progressBg = ""
-		if (percentage <= 35) {
+			progressBg = "",
+			advice = ""
+		if (percentage <= 40) {
 			report = this.state.quizResultArray[0]
 			progressBg = "success"
-		} else if (percentage > 35 && percentage <= 59) {
+			advice = [
+				"Stay away from the deceased",
+				"Wash your hands properly",
+				"Avoid public gatherings",
+				"Follow precautions",
+			]
+		} else if (percentage > 40 && percentage <= 65) {
 			report = this.state.quizResultArray[1]
 			progressBg = "warning"
+			advice = [
+				"Consult with a Doctor",
+				"Stay away from the deceased",
+				"Wash your hands properly",
+				"Avoid public gatherings",
+			]
 		} else {
 			report = this.state.quizResultArray[2]
 			progressBg = "danger"
+			advice = [
+				"Please colsult with a Doctor!",
+				"Isolate yourself",
+				"Follow medical advice",
+			]
 		}
 		this.setState(
 			{
 				percentage: percentage,
 				resultToDisplay: report,
 				progressBg: progressBg,
+				advice: advice,
 			},
 			() => {
 				this.next()
@@ -154,6 +182,7 @@ export default class QuizSlider extends React.Component {
 			slidesToScroll: 1,
 			arrows: false,
 			swipe: false,
+			adaptiveHeight: true,
 		}
 		return (
 			<Slider ref={c => (this.slider = c)} {...options} className="mt-5 mb-3">
@@ -388,16 +417,25 @@ export default class QuizSlider extends React.Component {
 							>
 								{this.state.percentage}%
 							</Progress>
+							<p>
+								<small>symptoms found</small>
+							</p>
 						</Col>
 						<Col md="6">
-							<h3>
+							<h5>
 								<b>{this.state.resultToDisplay}</b>
-							</h3>
-							<small>
-								These results are not accurate. Please consult a medical
-								professional for any other symptoms that are severe or
-								concerning
-							</small>
+							</h5>
+							{Array.isArray(this.state.advice) && this.state.advice.length ? (
+								<Advice advice={this.state.advice} />
+							) : null}
+
+							<p style={{ fontSize: "14px", lineHeight: "12px" }}>
+								<small>
+									These results are not accurate. Please consult a medical
+									professional for any other symptoms that are severe or
+									concerning
+								</small>
+							</p>
 						</Col>
 						<Col>
 							<p className="my-0">
@@ -421,4 +459,23 @@ export default class QuizSlider extends React.Component {
 			</Slider>
 		)
 	}
+}
+
+const Advice = props => {
+	return (
+		<Col sm="12" className="px-0 mb-2">
+			{props.advice.map((item, key) => {
+				return (
+					<Badge
+						color="info"
+						key={key}
+						className="mx-1 py-1 px-2"
+						style={{ borderRadius: 0 }}
+					>
+						{item}
+					</Badge>
+				)
+			})}
+		</Col>
+	)
 }

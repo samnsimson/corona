@@ -19,7 +19,7 @@ class PlotGenerator {
 				},
 			],
 		}
-		data.map(item => {
+		data.map(function(item) {
 			state.labels.push(item[x])
 			state.datasets[0].data.push(item[y])
 		})
@@ -38,7 +38,7 @@ class PlotGenerator {
 				},
 			],
 		}
-		data.map(item => {
+		data.map(function(item) {
 			state.labels.push(item.key)
 			state.datasets[0].data.push(item.value)
 		})

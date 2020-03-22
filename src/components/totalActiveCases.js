@@ -2,7 +2,7 @@ import React from "react"
 import axios from "axios"
 import BarChart from "../components/BarChart"
 import PlotGenerator from "../components/plotGenerator"
-import { Col, Row } from "reactstrap"
+import { Col } from "reactstrap"
 import moment from "moment"
 
 export default class totalActiveCases extends React.Component {

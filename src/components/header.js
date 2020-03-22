@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import React, { useState } from "react"
+import Image from "./image"
 import {
   Collapse,
   Navbar,
@@ -19,22 +20,17 @@ const Header = ({ siteTitle }) => {
     <div>
       <Navbar color="light" light expand="md">
         <Container>
-          <NavbarBrand href="/">Corona Update</NavbarBrand>
+          <NavbarBrand href="/">
+            <Image />
+          </NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <NavLink href="/india/">India</NavLink>
+                <NavLink href="/information">Information</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">
-                  Global
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">
-                  Information
-                </NavLink>
+                <NavLink href="/faq">FAQ's</NavLink>
               </NavItem>
             </Nav>
             <NavbarText>Simple Text</NavbarText>

@@ -6,7 +6,6 @@ import {
 	Row,
 	Col,
 	Table,
-	Progress,
 	Card,
 	CardBody,
 	CardHeader,
@@ -88,7 +87,6 @@ export default class totalDataInDoughnut extends React.Component {
 }
 
 const CaseInWords = props => {
-	console.log(`this first ${JSON.stringify(props.data[0].value)}`)
 	return (
 		<Card>
 			<CardHeader>
