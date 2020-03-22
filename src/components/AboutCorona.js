@@ -11,6 +11,10 @@ export default class AboutCorona extends React.Component {
 		}
 	}
 
+	componentDidMount() {
+		this.fetchData()
+	}
+
 	fetchData = async () => {
 		try {
 			const data = await axios.get("http://localhost:3333/api/intro")
@@ -23,7 +27,6 @@ export default class AboutCorona extends React.Component {
 	}
 
 	render() {
-		this.fetchData()
 		return (
 			<Row>
 				<Col sm="12">
