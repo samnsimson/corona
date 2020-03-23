@@ -2,10 +2,16 @@ import React from "react"
 import { Container, Row, Col, Table } from "reactstrap"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import ReactGA from "react-ga"
 
 export default class whattoeat extends React.Component {
 	constructor(props) {
 		super(props)
+	}
+
+	componentDidMount() {
+		ReactGA.initialize("UA-132752395-4")
+		ReactGA.pageview(window.location.pathname + window.location.search)
 	}
 
 	render() {

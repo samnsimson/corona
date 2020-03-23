@@ -39,6 +39,14 @@ export default class footer extends React.Component {
 							<a target="_blank" href="https://www.wikipedia.org/">
 								wikipedia.org
 							</a>
+							{`, `}
+							<a target="_blank" href="https://www.who.int/">
+								who.int
+							</a>
+							{`, `}
+							<a target="_blank" href="https://www.cdc.gov/">
+								cdc.gov
+							</a>
 							. <b>Compliants: </b> If you have any complaints regarding this
 							website please write to the email address{" "}
 							<a href="mailto:samnsimson@gmail.com">samnsimson@gmail.com</a>

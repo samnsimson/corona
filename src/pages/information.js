@@ -6,8 +6,13 @@ import { Row, Col } from "reactstrap"
 import AboutCorona from "../components/AboutCorona"
 import Stayhome from "../components/Images/Stayhome"
 import CoronaChecker from "../components/CoronaChecker"
+import ReactGA from "react-ga"
 
 export default class information extends React.Component {
+	componentDidMount() {
+		ReactGA.initialize("UA-132752395-4")
+		ReactGA.pageview(window.location.pathname + window.location.search)
+	}
 	render() {
 		return (
 			<Layout>
