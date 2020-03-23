@@ -350,19 +350,18 @@ export default class Quiz extends React.Component {
 						>
 							<div className="text-center">
 								<h4 className="text-center mb-4">{item.question}</h4>
-								<ButtonGroup>
-									{item.answer.map((elem, key) => {
-										return (
-											<Button
-												key={key}
-												color="primary"
-												onClick={() => this.handleClick(elem.value)}
-											>
-												{elem.name}
-											</Button>
-										)
-									})}
-								</ButtonGroup>
+								{item.answer.map((elem, key) => {
+									return (
+										<Button
+											key={key}
+											color="primary"
+											onClick={() => this.handleClick(elem.value)}
+											className="mx-2"
+										>
+											{elem.name}
+										</Button>
+									)
+								})}
 							</div>
 						</div>
 					)

@@ -2,16 +2,12 @@ import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Row, Col, ListGroup, ListGroupItem } from "reactstrap"
+import { Row, Col } from "reactstrap"
 import AboutCorona from "../components/AboutCorona"
 import Stayhome from "../components/Images/Stayhome"
 import CoronaChecker from "../components/CoronaChecker"
 
 export default class information extends React.Component {
-	constructor(props) {
-		super(props)
-	}
-
 	render() {
 		return (
 			<Layout>
