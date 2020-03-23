@@ -33,7 +33,9 @@ const Header = ({ siteTitle }) => {
                 <NavLink href="/faq">FAQ's</NavLink>
               </NavItem>
             </Nav>
-            <NavbarText>Simple Text</NavbarText>
+            <NavbarText>
+              <a href="mailto:samnsimson@gmail.com">Need a website?</a>
+            </NavbarText>
           </Collapse>
         </Container>
       </Navbar>

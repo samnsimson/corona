@@ -10,6 +10,7 @@ import {
 } from "reactstrap"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Image from "../components/image"
 
 export default class faq extends React.Component {
 	constructor(props) {
@@ -29,6 +30,8 @@ export default class faq extends React.Component {
 				<SEO title="Frequently asked questions about CORONA Virus" />
 				<Row className="my-5">
 					<Col md="8">
+						<h4>Frequently asked questions</h4>
+						<hr />
 						<CardDeck className="mb-5">
 							<Card style={this.style.cards}>
 								<CardBody>
@@ -159,7 +162,9 @@ export default class faq extends React.Component {
 							</Card>
 						</CardDeck>
 					</Col>
-					<Col md="4"></Col>
+					<Col md="4">
+						<img src="../images/how to wash your hands.jpg" width="200" />
+					</Col>
 				</Row>
 			</Layout>
 		)

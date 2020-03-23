@@ -418,7 +418,7 @@ export default class QuizSlider extends React.Component {
 								{this.state.percentage}%
 							</Progress>
 							<p>
-								<small>symptoms found</small>
+								<small>symptoms matched</small>
 							</p>
 						</Col>
 						<Col md="6">
