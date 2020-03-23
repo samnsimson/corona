@@ -10,8 +10,10 @@ import {
 } from "reactstrap"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import CoronaChecker from "../components/CoronaChecker"
 import Imagehowtoprotect from "../components/Images/howtoprotect"
 import Imgstopcovid from "../components/Images/Stopcovid"
+import Stayhome from "../components/Images/Stayhome"
 
 export default class faq extends React.Component {
 	constructor(props) {
@@ -29,7 +31,7 @@ export default class faq extends React.Component {
 		return (
 			<Layout>
 				<SEO title="Frequently asked questions about CORONA Virus" />
-				<Row className="my-5">
+				<Row className="mt-5">
 					<Col xs="12">
 						<h4 className="py-2">FREQUENTLY ASKED QUESTIONS</h4>
 					</Col>
@@ -166,9 +168,11 @@ export default class faq extends React.Component {
 					</Col>
 					<Col md="4">
 						<Imagehowtoprotect className="mb-5" />
+						<Stayhome className="mb-5" />
 						<Imgstopcovid className="mb-5" />
 					</Col>
 				</Row>
+				<CoronaChecker />
 			</Layout>
 		)
 	}

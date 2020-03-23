@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import { Row, Col, Container } from "reactstrap"
 export default class footer extends React.Component {
 	constructor(props) {
@@ -11,16 +12,18 @@ export default class footer extends React.Component {
 				<Col xs="12" className="py-3">
 					<Container style={{ fontSize: "14px" }}>
 						<p>
-							<b>Disclaimer: </b>The contents in this website are curated from
-							various sources to get you all the information about the latest
-							Corona Virus outbreak all in one place. **The contents in this
-							website are not ment to infuse wrong data to its users. the data
-							are curated from various approved websites and are updated on a
-							regular basis to provide the latest information availabel. **The
-							contents in this website are not accurate and user verification
-							with the live information is adviced. The corona virus checker is
-							not accurate and users are strongly adviced to consult with a
-							medical professional. <b>Sources: </b>
+							<b>Disclaimer: </b> <Link to="/">coronavisindia.com</Link> is a
+							privately owned website that is not owned or operated by any state
+							or federal government agency. The contents in this website are
+							curated from various sources to get you all the information about
+							the latest Corona Virus outbreak all in one place. **The contents
+							in this website are not ment to infuse wrong data to its users.
+							the data are curated from various approved websites and are
+							updated on a regular basis to provide the latest information
+							available. **The contents in this website are not accurate and
+							user verification with the live information is adviced. The corona
+							virus checker is not accurate and users are strongly adviced to
+							consult with a medical professional. <b>Sources: </b>
 							<a target="_blank" href="https://www.mohfw.gov.in/">
 								www.mohfw.gov.in
 							</a>

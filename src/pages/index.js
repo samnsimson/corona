@@ -9,6 +9,7 @@ import TotalDataInDoughnut from "../components/totalDataInDoughnut"
 import CoronaChecker from "../components/CoronaChecker"
 import AboutCorona from "../components/AboutCorona"
 import Imgstopcovid from "../components/Images/Stopcovid"
+import Stayhome from "../components/Images/Stayhome"
 
 export default class index extends Component {
   constructor(props) {
@@ -28,7 +29,8 @@ export default class index extends Component {
             <Row>
               <Col md="4">
                 <TotalDataInDoughnut />
-                <Imgstopcovid />
+                <Imgstopcovid className="mb-5" />
+                <Stayhome className="mb-5" />
               </Col>
               <Col md="8">
                 <Row className="mt-5">

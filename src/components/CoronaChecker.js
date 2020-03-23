@@ -51,13 +51,3 @@ export default class CoronaChecker extends React.Component {
 	}
 }
 
-const Quiz = () => {
-	return (
-		<Row>
-			<Col xs="12">Quiz Section</Col>
-			<Row>
-				<Button color="primary">Diagnose</Button>
-			</Row>
-		</Row>
-	)
-}

@@ -4,6 +4,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Row, Col, ListGroup, ListGroupItem } from "reactstrap"
 import AboutCorona from "../components/AboutCorona"
+import Stayhome from "../components/Images/Stayhome"
+import CoronaChecker from "../components/CoronaChecker"
 
 export default class information extends React.Component {
 	constructor(props) {
@@ -19,7 +21,7 @@ export default class information extends React.Component {
 						<AboutCorona />
 					</Col>
 				</Row>
-				<Row className="mb-5">
+				<Row>
 					<Col md="6">
 						<div className="mb-5">
 							<h5>When to get tested for Novel Corona Virus aka COVID-19?</h5>
@@ -97,6 +99,8 @@ export default class information extends React.Component {
 								</a>
 							</div>
 						</div>
+						<hr />
+						<Stayhome className="mb-5" />
 					</Col>
 					<Col md="6">
 						<div className="mb-5">
@@ -145,6 +149,7 @@ export default class information extends React.Component {
 								</a>
 							</div>
 						</div>
+						<hr />
 						<div className="mb-5">
 							<h5>Guidelines on use of masks by public</h5>
 							<p>
@@ -189,8 +194,10 @@ export default class information extends React.Component {
 								</a>
 							</div>
 						</div>
+						<hr />
 					</Col>
 				</Row>
+				<CoronaChecker />
 			</Layout>
 		)
 	}

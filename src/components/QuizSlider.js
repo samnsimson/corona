@@ -14,7 +14,7 @@ import "../../node_modules/slick-carousel/slick/slick.css"
 import "../../node_modules/slick-carousel/slick/slick-theme.css"
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
-export default class QuizSlider extends React.Component {
+export default class Quiz extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -29,6 +29,8 @@ export default class QuizSlider extends React.Component {
 			progressBg: "",
 			resultToDisplay: "",
 			advice: [],
+			rSelected: null,
+			setRSelected: null,
 		}
 		this.tempValueArray = []
 		this.resultantArray = []
@@ -41,12 +43,203 @@ export default class QuizSlider extends React.Component {
 
 	componentDidMount() {}
 
-	handleClick = e => {
-		e.preventDefault()
-		let tempValue = e.target.value.replace(/\s+/g, "")
-		tempValue = tempValue.toLowerCase()
-		this.tempValueArray.push(tempValue)
-		console.log(this.tempValueArray)
+	questionArray = [
+		{
+			type: "age",
+			question: "What is your age?",
+			answer: [
+				{
+					name: "Below 35",
+					value: 10,
+				},
+				{
+					name: "35 to 65",
+					value: 20,
+				},
+				{
+					name: "Above 65",
+					value: 30,
+				},
+			],
+		},
+		{
+			type: "gender",
+			question: "What is your gender?",
+			answer: [
+				{
+					name: "Male",
+					value: 12,
+				},
+				{
+					name: "Female",
+					value: 8,
+				},
+			],
+		},
+		{
+			type: "fever",
+			question: "How long do you have fever?",
+			answer: [
+				{
+					name: "No Fever",
+					value: 0,
+				},
+				{
+					name: "Less than 5 days",
+					value: 22,
+				},
+				{
+					name: "5 to 10 days",
+					value: 44,
+				},
+				{
+					name: "More than 10 days",
+					value: 88,
+				},
+			],
+		},
+		{
+			type: "caugh",
+			question: "Do you have dry caugh?",
+			answer: [
+				{
+					name: "Yes",
+					value: 68,
+				},
+				{
+					name: "No",
+					value: 0,
+				},
+			],
+		},
+		{
+			type: "fatigue",
+			question: "Do you feel fatigued?",
+			answer: [
+				{
+					name: "Yes",
+					value: 38,
+				},
+				{
+					name: "No",
+					value: 0,
+				},
+			],
+		},
+		{
+			type: "breath",
+			question: "Are you experiencing shortness of breath?",
+			answer: [
+				{
+					name: "Yes",
+					value: 19,
+				},
+				{
+					name: "No",
+					value: 0,
+				},
+			],
+		},
+		{
+			type: "breath",
+			question: "Are you experiencing pain in muscles or joints?",
+			answer: [
+				{
+					name: "Yes",
+					value: 15,
+				},
+				{
+					name: "No",
+					value: 0,
+				},
+			],
+		},
+		{
+			type: "breath",
+			question: "Are you having a sore throat?",
+			answer: [
+				{
+					name: "Yes",
+					value: 14,
+				},
+				{
+					name: "No",
+					value: 0,
+				},
+			],
+		},
+		{
+			type: "breath",
+			question: "Are you having headache?",
+			answer: [
+				{
+					name: "Yes",
+					value: 14,
+				},
+				{
+					name: "No",
+					value: 0,
+				},
+			],
+		},
+		{
+			type: "breath",
+			question: "Are you having chills?",
+			answer: [
+				{
+					name: "Yes",
+					value: 12,
+				},
+				{
+					name: "No",
+					value: 0,
+				},
+			],
+		},
+		{
+			type: "breath",
+			question: "Are you feeling nausea or vomiting?",
+			answer: [
+				{
+					name: "Yes",
+					value: 5,
+				},
+				{
+					name: "No",
+					value: 0,
+				},
+			],
+		},
+		{
+			type: "breath",
+			question:
+				"Do you have other medical conditions such as asthma, diabetes or heart attack?",
+			answer: [
+				{
+					name: "Yes",
+					value: 25,
+				},
+				{
+					name: "No",
+					value: 0,
+				},
+			],
+		},
+	]
+
+	setRSelected = value => {
+		this.setState(
+			{
+				rSelected: value,
+			},
+			() => {
+				console.log(this.state.rSelected)
+			}
+		)
+	}
+
+	handleClick = value => {
+		this.tempValueArray.push(value)
 		this.next()
 	}
 
@@ -56,46 +249,9 @@ export default class QuizSlider extends React.Component {
 				quizData: this.tempValueArray,
 			},
 			() => {
-				this.state.quizData.map(item => {
-					switch (item) {
-						case "below35":
-							this.resultantArray.push(10)
-							break
-						case "35to65":
-							this.resultantArray.push(20)
-							break
-						case "above65":
-							this.resultantArray.push(30)
-							break
-						case "male":
-							this.resultantArray.push(12)
-							break
-						case "female":
-							this.resultantArray.push(8)
-							break
-						case "lessthan5days":
-							this.resultantArray.push(10)
-							break
-						case "5to10days":
-							this.resultantArray.push(20)
-							break
-						case "morethan10days":
-							this.resultantArray.push(30)
-							break
-						case "yes":
-							this.resultantArray.push(20)
-							break
-						case "no":
-							this.resultantArray.push(0)
-							break
-						default:
-							this.resultantArray.push(0)
-					}
-				})
-				var sum = this.resultantArray.reduce(function(a, b) {
+				var sum = this.state.quizData.reduce(function(a, b) {
 					return a + b
 				}, 0)
-				console.log(this.resultantArray)
 				this.setState(
 					{
 						sum: sum,
@@ -109,7 +265,7 @@ export default class QuizSlider extends React.Component {
 	}
 
 	calcPercentage = sum => {
-		let percentage = Math.floor((sum / 192) * 100)
+		let percentage = Math.floor((sum / 340) * 100)
 		let report = "",
 			progressBg = "",
 			advice = ""
@@ -186,205 +342,31 @@ export default class QuizSlider extends React.Component {
 		}
 		return (
 			<Slider ref={c => (this.slider = c)} {...options} className="mt-5 mb-3">
-				<div className="slideElement d-flex justify-content-center">
-					<div className="text-center">
-						<h4 className="text-center mb-4">What is your age?</h4>
-						<ButtonGroup>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="Below 35"
-								onClick={this.handleClick}
-							/>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="35 to 65"
-								onClick={this.handleClick}
-							/>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="Above 65"
-								onClick={this.handleClick}
-							/>
-						</ButtonGroup>
-					</div>
-				</div>
-				<div className="slideElement d-flex justify-content-center">
-					<div className="text-center">
-						<h4 className="text-center mb-4">What is your gender?</h4>
-						<ButtonGroup>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="Male"
-								onClick={this.handleClick}
-							/>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="Female"
-								onClick={this.handleClick}
-							/>
-						</ButtonGroup>
-					</div>
-				</div>
-				<div className="slideElement d-flex flex-row justify-content-center">
-					<div className="text-center">
-						<h4 className="text-center mb-4">How long do you have fever?</h4>
-						<ButtonGroup>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="No fever"
-								onClick={this.handleClick}
-							/>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="Less than 5 days"
-								onClick={this.handleClick}
-							/>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="5 to 10 days"
-								onClick={this.handleClick}
-							/>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="More than 10 days"
-								onClick={this.handleClick}
-							/>
-						</ButtonGroup>
-					</div>
-				</div>
-				<div className="slideElement d-flex flex-row justify-content-center">
-					<div className="text-center">
-						<h4 className="text-center mb-4">Do you have dry cough?</h4>
-						<ButtonGroup>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="Yes"
-								onClick={this.handleClick}
-							/>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="No"
-								onClick={this.handleClick}
-							/>
-						</ButtonGroup>
-					</div>
-				</div>
-				<div className="slideElement d-flex flex-row justify-content-center">
-					<div className="text-center">
-						<h4 className="text-center mb-4">
-							Are you experiencing shortness of breath?
-						</h4>
-						<ButtonGroup>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="Yes"
-								onClick={this.handleClick}
-							/>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="No"
-								onClick={this.handleClick}
-							/>
-						</ButtonGroup>
-					</div>
-				</div>
-				<div className="slideElement d-flex flex-row justify-content-center">
-					<div className="text-center">
-						<h4 className="text-center mb-4">
-							Are you experiencing persistent pain or pressure in the chest?
-						</h4>
-						<ButtonGroup>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="Yes"
-								onClick={this.handleClick}
-							/>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="No"
-								onClick={this.handleClick}
-							/>
-						</ButtonGroup>
-					</div>
-				</div>
-				<div className="slideElement d-flex flex-row justify-content-center">
-					<div className="text-center">
-						<h4 className="text-center mb-4">Is you lips or face bluish?</h4>
-						<ButtonGroup>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="Yes"
-								onClick={this.handleClick}
-							/>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="No"
-								onClick={this.handleClick}
-							/>
-						</ButtonGroup>
-					</div>
-				</div>
-				<div className="slideElement d-flex flex-row justify-content-center">
-					<div className="text-center">
-						<h4 className="text-center mb-4">
-							Are you feeling confused or inability to arouse?
-						</h4>
-						<ButtonGroup>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="Yes"
-								onClick={this.handleClick}
-							/>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="No"
-								onClick={this.handleClick}
-							/>
-						</ButtonGroup>
-					</div>
-				</div>
-				<div className="slideElement d-flex flex-row justify-content-center">
-					<div className="text-center">
-						<h4 className="text-center mb-4">
-							Do you have other medical conditions
-							<br />
-							(such as asthma, diabetes, or heart disease)?
-						</h4>
-						<ButtonGroup>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="Yes"
-								onClick={this.handleClick}
-							/>
-							<Input
-								type="button"
-								className="btn btn-info"
-								value="No"
-								onClick={this.handleClick}
-							/>
-						</ButtonGroup>
-					</div>
-				</div>
+				{this.questionArray.map((item, key) => {
+					return (
+						<div
+							key={key}
+							className="slideElement d-flex justify-content-center"
+						>
+							<div className="text-center">
+								<h4 className="text-center mb-4">{item.question}</h4>
+								<ButtonGroup>
+									{item.answer.map((elem, key) => {
+										return (
+											<Button
+												key={key}
+												color="primary"
+												onClick={() => this.handleClick(elem.value)}
+											>
+												{elem.name}
+											</Button>
+										)
+									})}
+								</ButtonGroup>
+							</div>
+						</div>
+					)
+				})}
 				<div className="slideElement d-flex flex-row justify-content-center">
 					<div className="text-center">
 						<h4 className="text-center">
@@ -394,7 +376,7 @@ export default class QuizSlider extends React.Component {
 							Please click the button below to see the report
 						</p>
 						<div className="btn-group">
-							<Button color="info" onClick={this.generateResult}>
+							<Button color="warning" onClick={this.generateResult}>
 								See Report
 							</Button>
 						</div>
@@ -442,13 +424,13 @@ export default class QuizSlider extends React.Component {
 								<strong>What's next?</strong>
 							</p>
 							<p className="my-0">
-								<Link to="/">How to protect yourself</Link>
+								<Link to="/information">How to protect yourself</Link>
 							</p>
 							<p className="my-0">
-								<Link to="#">What to do if you are sick?</Link>
+								<Link to="/information">What to do if you are sick?</Link>
 							</p>
 							<p className="my-0">
-								<Link to="#">What the Government says</Link>
+								<Link to="/information">What the Government says</Link>
 							</p>
 							<Button color="primary" size="sm" onClick={this.goToFirst}>
 								Recheck
