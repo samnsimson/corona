@@ -11,6 +11,7 @@ import {
 	CardHeader,
 	CardFooter,
 } from "reactstrap"
+import Spinner from "../components/Spinners"
 import moment from "moment"
 
 export default class totalDataInDoughnut extends React.Component {
@@ -18,25 +19,39 @@ export default class totalDataInDoughnut extends React.Component {
 		super(props)
 		this.state = {
 			DoughnutData: {},
+			loading: "",
 		}
 		this.fetchDoughnutData = this.fetchDoughnutData.bind(this)
 	}
 
 	componentDidMount() {
+		let debounceTime = 100
+		let timeoutId = setTimeout(
+			() => this.setState({ loading: true }),
+			debounceTime
+		)
 		this.fetchDoughnutData().then(res => {
 			this.setState(
 				{
 					DoughnutData: res.data,
 				},
 				() => {
-					this.setState({
-						plotdataArray: PlotGenerator.DoughnutChart(
-							this.state.DoughnutData,
-							["#56b2ef", "#FFD54F", "#499B9B", "#CC5B70"],
-							["#1a7dbf", "#c48900", "#0E5E5E", "#893746"],
-							"Case History"
-						),
-					})
+					this.setState(
+						{
+							plotdataArray: PlotGenerator.DoughnutChart(
+								this.state.DoughnutData,
+								["#56b2ef", "#FFD54F", "#499B9B", "#CC5B70"],
+								["#1a7dbf", "#c48900", "#0E5E5E", "#893746"],
+								"Case History"
+							),
+						},
+						() => {
+							clearTimeout(timeoutId)
+							this.setState({
+								loading: false,
+							})
+						}
+					)
 				}
 			)
 		})
@@ -74,7 +89,12 @@ export default class totalDataInDoughnut extends React.Component {
 						<strong>CASE HISTORY</strong>
 					</p>
 				</Col>
-				<DoughnutChart dataSet={this.state.plotdataArray} />
+				{this.state.loading ? (
+					<Spinner />
+				) : (
+					<DoughnutChart dataSet={this.state.plotdataArray} />
+				)}
+
 				<Col className="my-3">
 					{Array.isArray(this.state.DoughnutData) &&
 					this.state.DoughnutData.length ? (

@@ -1,6 +1,7 @@
 import React from "react"
 import axios from "axios"
 import { Link } from "gatsby"
+import Spinner from "../components/Spinners"
 import { Row, Col, Card, CardTitle, CardText, CardBody } from "reactstrap"
 
 export default class AboutCorona extends React.Component {
@@ -8,11 +9,22 @@ export default class AboutCorona extends React.Component {
 		super(props)
 		this.state = {
 			description: "",
+			loading: "",
 		}
 	}
 
 	componentDidMount() {
-		this.fetchData()
+		let debounceTime = 100
+		let timeoutId = setTimeout(
+			() => this.setState({ loading: true }),
+			debounceTime
+		)
+		this.fetchData().then(() => {
+			clearTimeout(timeoutId)
+			this.setState({
+				loading: false,
+			})
+		})
 	}
 
 	style = {
@@ -44,18 +56,22 @@ export default class AboutCorona extends React.Component {
 							<CardTitle>
 								<strong>About CORONA (COVID-19)</strong>
 							</CardTitle>
-							<CardText>
-								{Array.isArray(this.state.description) &&
-								this.state.description.length
-									? this.state.description[0].description
-									: null}
-								<small>
-									source:{" "}
-									<Link to="https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_India">
-										Wikipedia
-									</Link>
-								</small>
-							</CardText>
+							{this.state.loading ? (
+								<Spinner />
+							) : (
+								<CardText>
+									{Array.isArray(this.state.description) &&
+									this.state.description.length
+										? this.state.description[0].description
+										: null}
+									<small>
+										source:{" "}
+										<Link to="https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_India">
+											Wikipedia
+										</Link>
+									</small>
+								</CardText>
+							)}
 						</CardBody>
 					</Card>
 				</Col>
