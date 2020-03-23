@@ -37,6 +37,14 @@ export default class CoronaChecker extends React.Component {
 						By answering few simple question let us find if you are vulnerable
 						to Corona aka COVID-19 or not.**
 					</p>
+					<p className="text-center">
+						<b>Note:</b> The report generated here is a comparision of your
+						symptoms with that of the symptoms of Corona.
+						<br />
+						As adviced by the Ministry of Health & Family Welfare and with
+						reference to WHO and CDC, this result might help you decide if you
+						need a medical consultation or not.
+					</p>
 					<p className="lead text-center">
 						{this.state.showButton ? (
 							<Button color="primary" onClick={this.toggleButton}>
@@ -50,4 +58,3 @@ export default class CoronaChecker extends React.Component {
 		)
 	}
 }
-

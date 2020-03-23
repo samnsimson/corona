@@ -71,8 +71,10 @@ export default class faq extends React.Component {
 										under investigation and be tested through clinical trials
 										<br />
 										<br />
-										WHO is helping to accelerate research and development
-										efforts with a range of partners.
+										However National Task force for COVID-19 constituted by
+										Indian Council of Medical Research recommends the use of
+										Hydroxy-chloroquine for prophylaxis of SARS-Cov-2 infection
+										for high risk population.
 									</CardText>
 								</CardBody>
 							</Card>

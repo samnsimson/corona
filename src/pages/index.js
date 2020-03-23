@@ -10,6 +10,8 @@ import CoronaChecker from "../components/CoronaChecker"
 import AboutCorona from "../components/AboutCorona"
 import Imgstopcovid from "../components/Images/Stopcovid"
 import Stayhome from "../components/Images/Stayhome"
+import HelplineSnippet from "../components/HelplineSnippet"
+import ReactGA from "react-ga"
 
 export default class index extends Component {
   constructor(props) {
@@ -17,7 +19,10 @@ export default class index extends Component {
     this.state = {}
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    ReactGA.initialize("UA-132752395-4")
+    ReactGA.pageview(window.location.pathname + window.location.search)
+  }
 
   render() {
     return (
@@ -29,6 +34,7 @@ export default class index extends Component {
             <Row>
               <Col md="4">
                 <TotalDataInDoughnut />
+                <HelplineSnippet />
                 <Imgstopcovid className="mb-5" />
                 <Stayhome className="mb-5" />
               </Col>

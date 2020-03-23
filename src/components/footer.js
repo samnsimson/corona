@@ -21,9 +21,10 @@ export default class footer extends React.Component {
 							the data are curated from various approved websites and are
 							updated on a regular basis to provide the latest information
 							available. **The contents in this website are not accurate and
-							user verification with the live information is adviced. The corona
-							virus checker is not accurate and users are strongly adviced to
-							consult with a medical professional. <b>Sources: </b>
+							user verification with the live information/medical professional
+							is adviced. The corona virus checker result is not final and users
+							are strongly adviced to consult with a medical professional.{" "}
+							<b>Sources: </b>
 							<a target="_blank" href="https://www.mohfw.gov.in/">
 								www.mohfw.gov.in
 							</a>

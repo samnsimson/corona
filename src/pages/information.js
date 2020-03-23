@@ -33,7 +33,7 @@ export default class information extends React.Component {
 									any symptoms like Cough, fever or difficulty in breathing
 								</p>
 								<Link to="" className="btn btn-warning mb-2">
-									Take a test now
+									Take an online test now
 								</Link>
 								<p>
 									If you have any of the above symptoms and have travelled to

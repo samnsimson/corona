@@ -22,8 +22,8 @@ export default class Quiz extends React.Component {
 			sum: "",
 			percentage: "",
 			quizResultArray: [
-				"You show very less symptoms. It is less likely that you are being affected by COVID-19",
-				"You are showing mild symptoms of COVID-19. You are likely to be affected by the virus",
+				"You show very less symptoms. It is less likely that you are vulnerable/affected by COVID-19",
+				"You are showing mild symptoms that match closely with that of COVID-19.",
 				"You are vulnerable to the virus and you show strong symptoms related to COVID-19.",
 			],
 			progressBg: "",
@@ -82,7 +82,7 @@ export default class Quiz extends React.Component {
 			answer: [
 				{
 					name: "No Fever",
-					value: 0,
+					value: 100,
 				},
 				{
 					name: "Less than 5 days",
@@ -239,8 +239,12 @@ export default class Quiz extends React.Component {
 	}
 
 	handleClick = value => {
-		this.tempValueArray.push(value)
-		this.next()
+		if (value == 100) {
+			this.slider.slickGoTo(this.questionArray.length)
+		} else {
+			this.tempValueArray.push(value)
+			this.next()
+		}
 	}
 
 	generateResult = e => {
