@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
     title: `Corona in India Visualized`,
@@ -42,5 +44,3 @@ module.exports = {
     // `gatsby-plugin-offline`,
   ],
 }
-
-require("dotenv").config()
