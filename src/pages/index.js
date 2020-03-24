@@ -20,7 +20,7 @@ export default class index extends Component {
   }
 
   componentDidMount() {
-    ReactGA.initialize(process.env.GOOGLE_UA)
+    ReactGA.initialize(process.env.GATSBY_GOOGLE_UA)
     ReactGA.pageview(window.location.pathname + window.location.search)
   }
 

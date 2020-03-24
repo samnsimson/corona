@@ -44,7 +44,7 @@ export default class LineChartComponent extends React.Component {
 
 	fetchLineData = async () => {
 		try {
-			const data = await axios.get(`${process.env.API_URL}/linechart`)
+			const data = await axios.get(`${process.env.GATSBY_API_URL}/linechart`)
 			return data.data
 		} catch (err) {
 			console.log(err)

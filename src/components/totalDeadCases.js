@@ -48,7 +48,7 @@ export default class totalDeadCases extends React.Component {
 
 	getDeadCases = async () => {
 		try {
-			const data = await axios.get(process.env.API_URL)
+			const data = await axios.get(process.env.GATSBY_API_URL)
 			return data
 		} catch (err) {
 			console.log(err)

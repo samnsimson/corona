@@ -18,9 +18,9 @@ import ReactGA from "react-ga"
 
 export default class faq extends React.Component {
 	componentDidMount() {
-		ReactGA.initialize(process.env.GOOGLE_UA)
+		console.log(`API URL : ${process.env.GATSBY_API_URL}`)
+		ReactGA.initialize(process.env.GATSBY_GOOGLE_UA)
 		ReactGA.pageview(window.location.pathname + window.location.search)
-		console.log(process.env.API_URL)
 	}
 
 	style = {

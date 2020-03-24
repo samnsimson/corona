@@ -10,7 +10,7 @@ import ReactGA from "react-ga"
 
 export default class information extends React.Component {
 	componentDidMount() {
-		ReactGA.initialize(process.env.GOOGLE_UA)
+		ReactGA.initialize(process.env.GATSBY_GOOGLE_UA)
 		ReactGA.pageview(window.location.pathname + window.location.search)
 	}
 	render() {

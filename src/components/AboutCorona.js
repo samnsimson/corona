@@ -35,7 +35,7 @@ export default class AboutCorona extends React.Component {
 
 	fetchData = async () => {
 		try {
-			const data = await axios.get(`${process.env.API_URL}/intro`)
+			const data = await axios.get(`${process.env.GATSBY_API_URL}/intro`)
 			this.setState({
 				description: data.data,
 			})
