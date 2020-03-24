@@ -1,11 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Row, Col, Container } from "reactstrap"
+import { Col, Container } from "reactstrap"
 export default class footer extends React.Component {
-	constructor(props) {
-		super(props)
-	}
-
 	render() {
 		return (
 			<Container fluid className="pt-3">
@@ -25,26 +21,43 @@ export default class footer extends React.Component {
 							is adviced. The corona virus checker result is not final and users
 							are strongly adviced to consult with a medical professional.{" "}
 							<b>Sources: </b>
-							<a target="_blank" href="https://www.mohfw.gov.in/">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href="https://www.mohfw.gov.in/"
+							>
 								www.mohfw.gov.in
 							</a>
 							{`, `}
 							<a
 								target="_blank"
+								rel="noopener noreferrer"
 								href="https://in.pinterest.com/search/pins/?q=corona%20virus&rs=typed&term_meta[]=corona%7Ctyped&term_meta[]=virus%7Ctyped"
 							>
 								pinterest.com
 							</a>
 							{`, `}
-							<a target="_blank" href="https://www.wikipedia.org/">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href="https://www.wikipedia.org/"
+							>
 								wikipedia.org
 							</a>
 							{`, `}
-							<a target="_blank" href="https://www.who.int/">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href="https://www.who.int/"
+							>
 								who.int
 							</a>
 							{`, `}
-							<a target="_blank" href="https://www.cdc.gov/">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href="https://www.cdc.gov/"
+							>
 								cdc.gov
 							</a>
 							. <b>Compliants: </b> If you have any complaints regarding this

@@ -2,10 +2,6 @@ import React from "react"
 import { Spinner } from "reactstrap"
 
 export default class Spinners extends React.Component {
-	constructor(props) {
-		super(props)
-	}
-
 	render() {
 		return (
 			<div

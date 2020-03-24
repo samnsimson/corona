@@ -7,7 +7,6 @@ import TotalCuredCases from "../components/totalCuredCases"
 import TotalDeadCases from "../components/totalDeadCases"
 import TotalDataInDoughnut from "../components/totalDataInDoughnut"
 import CoronaChecker from "../components/CoronaChecker"
-import AboutCorona from "../components/AboutCorona"
 import Imgstopcovid from "../components/Images/Stopcovid"
 import Stayhome from "../components/Images/Stayhome"
 import HelplineSnippet from "../components/HelplineSnippet"
@@ -21,7 +20,7 @@ export default class index extends Component {
   }
 
   componentDidMount() {
-    ReactGA.initialize("UA-132752395-4")
+    ReactGA.initialize(process.env.GOOGLE_UA)
     ReactGA.pageview(window.location.pathname + window.location.search)
   }
 

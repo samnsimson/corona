@@ -1,13 +1,5 @@
 import React from "react"
-import {
-	Card,
-	CardBody,
-	CardTitle,
-	CardText,
-	Col,
-	Row,
-	Table,
-} from "reactstrap"
+import { Card, CardTitle, Col, Row, Table } from "reactstrap"
 
 export default class HelplineSnippet extends React.Component {
 	style = {

@@ -19,17 +19,12 @@ export default class totalDataInDoughnut extends React.Component {
 		super(props)
 		this.state = {
 			DoughnutData: {},
-			loading: "",
+			loading: true,
 		}
 		this.fetchDoughnutData = this.fetchDoughnutData.bind(this)
 	}
 
 	componentDidMount() {
-		let debounceTime = 100
-		let timeoutId = setTimeout(
-			() => this.setState({ loading: true }),
-			debounceTime
-		)
 		this.fetchDoughnutData().then(res => {
 			this.setState(
 				{
@@ -46,7 +41,6 @@ export default class totalDataInDoughnut extends React.Component {
 							),
 						},
 						() => {
-							clearTimeout(timeoutId)
 							this.setState({
 								loading: false,
 							})
@@ -67,9 +61,7 @@ export default class totalDataInDoughnut extends React.Component {
 
 	fetchDoughnutData = async () => {
 		try {
-			const data = await axios.get(
-				"https://coronavizserver.herokuapp.com/api/sum"
-			)
+			const data = await axios.get(`${process.env.API_URL}/sum`)
 			return data
 		} catch (err) {
 			console.log(err)

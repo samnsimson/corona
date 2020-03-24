@@ -1,15 +1,7 @@
 import React from "react"
 import Slider from "react-slick"
 import { Link } from "gatsby"
-import {
-	ButtonGroup,
-	Input,
-	Badge,
-	Button,
-	Row,
-	Col,
-	Progress,
-} from "reactstrap"
+import { Badge, Button, Row, Col, Progress } from "reactstrap"
 import "../../node_modules/slick-carousel/slick/slick.css"
 import "../../node_modules/slick-carousel/slick/slick-theme.css"
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
@@ -239,7 +231,7 @@ export default class Quiz extends React.Component {
 	}
 
 	handleClick = value => {
-		if (value == 100) {
+		if (value === 100) {
 			this.slider.slickGoTo(this.questionArray.length)
 		} else {
 			this.tempValueArray.push(value)

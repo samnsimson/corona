@@ -17,13 +17,10 @@ import Stayhome from "../components/Images/Stayhome"
 import ReactGA from "react-ga"
 
 export default class faq extends React.Component {
-	constructor(props) {
-		super(props)
-	}
-
 	componentDidMount() {
-		ReactGA.initialize("UA-132752395-4")
+		ReactGA.initialize(process.env.GOOGLE_UA)
 		ReactGA.pageview(window.location.pathname + window.location.search)
+		console.log(process.env.API_URL)
 	}
 
 	style = {

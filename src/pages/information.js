@@ -10,7 +10,7 @@ import ReactGA from "react-ga"
 
 export default class information extends React.Component {
 	componentDidMount() {
-		ReactGA.initialize("UA-132752395-4")
+		ReactGA.initialize(process.env.GOOGLE_UA)
 		ReactGA.pageview(window.location.pathname + window.location.search)
 	}
 	render() {
@@ -28,7 +28,11 @@ export default class information extends React.Component {
 							<h5>When to get tested for Novel Corona Virus aka COVID-19?</h5>
 							<p>
 								Source:{" "}
-								<a target="_blank" href="https://www.mohfw.gov.in/">
+								<a
+									target="_blank"
+									rel="noopener noreferrer"
+									href="https://www.mohfw.gov.in/"
+								>
 									Ministry of Health & Family Welfare
 								</a>
 							</p>
@@ -57,6 +61,7 @@ export default class information extends React.Component {
 								</p>
 								<a
 									target="_blank"
+									rel="noopener noreferrer"
 									href="https://www.mohfw.gov.in/pdf/SocialDistancingAdvisorybyMOHFW.pdf"
 									className="btn btn-sm btn-info"
 								>
@@ -72,7 +77,11 @@ export default class information extends React.Component {
 							</h5>
 							<p>
 								Source:{" "}
-								<a target="_blank" href="https://www.mohfw.gov.in/">
+								<a
+									target="_blank"
+									rel="noopener noreferrer"
+									href="https://www.mohfw.gov.in/"
+								>
 									Ministry of Health & Family Welfare
 								</a>
 							</p>
@@ -93,6 +102,7 @@ export default class information extends React.Component {
 								</p>
 								<a
 									target="_blank"
+									rel="noopener noreferrer"
 									href="https://www.mohfw.gov.in/pdf/SocialDistancingAdvisorybyMOHFW.pdf"
 									className="btn btn-sm btn-info"
 								>
@@ -108,7 +118,11 @@ export default class information extends React.Component {
 							<h5>Instructions for peoples being home quarantined</h5>
 							<p>
 								Source:{" "}
-								<a target="_blank" href="https://www.mohfw.gov.in/">
+								<a
+									target="_blank"
+									rel="noopener noreferrer"
+									href="https://www.mohfw.gov.in/"
+								>
 									Ministry of Health & Family Welfare
 								</a>
 							</p>
@@ -143,6 +157,7 @@ export default class information extends React.Component {
 								</p>
 								<a
 									target="_blank"
+									rel="noopener noreferrer"
 									href="https://www.mohfw.gov.in/pdf/Guidelinesforhomequarantine.pdf"
 									className="btn btn-sm btn-info"
 								>
@@ -155,7 +170,11 @@ export default class information extends React.Component {
 							<h5>Guidelines on use of masks by public</h5>
 							<p>
 								Source:{" "}
-								<a target="_blank" href="https://www.mohfw.gov.in/">
+								<a
+									target="_blank"
+									rel="noopener noreferrer"
+									href="https://www.mohfw.gov.in/"
+								>
 									Ministry of Health & Family Welfare
 								</a>
 							</p>
@@ -188,6 +207,7 @@ export default class information extends React.Component {
 								</p>
 								<a
 									target="_blank"
+									rel="noopener noreferrer"
 									href="https://www.mohfw.gov.in/pdf/SocialDistancingAdvisorybyMOHFW.pdf"
 									className="btn btn-sm btn-info"
 								>

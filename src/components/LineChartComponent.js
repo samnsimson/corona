@@ -4,6 +4,7 @@ import { Col } from "reactstrap"
 import moment from "moment"
 import PlotGenerator from "../components/plotGenerator"
 import LineChart from "../components/LineChart"
+import Spinner from "../components/Spinners"
 
 export default class LineChartComponent extends React.Component {
 	constructor(props) {
@@ -11,6 +12,7 @@ export default class LineChartComponent extends React.Component {
 		this.state = {
 			lineDataArray: [],
 			plotDataArray: [],
+			loading: true,
 		}
 	}
 
@@ -21,13 +23,20 @@ export default class LineChartComponent extends React.Component {
 					lineDataArray: result,
 				},
 				() => {
-					this.setState({
-						plotDataArray: PlotGenerator.LineChart(
-							this.state.lineDataArray,
-							"day",
-							"total"
-						),
-					})
+					this.setState(
+						{
+							plotDataArray: PlotGenerator.LineChart(
+								this.state.lineDataArray,
+								"day",
+								"total"
+							),
+						},
+						() => {
+							this.setState({
+								loading: false,
+							})
+						}
+					)
 				}
 			)
 		})
@@ -35,9 +44,7 @@ export default class LineChartComponent extends React.Component {
 
 	fetchLineData = async () => {
 		try {
-			const data = await axios.get(
-				"https://coronavizserver.herokuapp.com/api/linechart"
-			)
+			const data = await axios.get(`${process.env.API_URL}/linechart`)
 			return data.data
 		} catch (err) {
 			console.log(err)
@@ -55,7 +62,11 @@ export default class LineChartComponent extends React.Component {
 						<b>DATE:</b> {moment().format("DD/MM/YYYY")}
 					</small>
 				</p>
-				<LineChart dataSet={this.state.plotDataArray} />
+				{this.state.loading ? (
+					<Spinner />
+				) : (
+					<LineChart dataSet={this.state.plotDataArray} />
+				)}
 			</Col>
 		)
 	}

@@ -1,5 +1,5 @@
 import React from "react"
-import { Jumbotron, Button, Row, Col } from "reactstrap"
+import { Button, Row, Col } from "reactstrap"
 import QuizSlider from "../components/QuizSlider"
 
 export default class CoronaChecker extends React.Component {
@@ -52,7 +52,7 @@ export default class CoronaChecker extends React.Component {
 							</Button>
 						) : null}
 					</p>
-					{this.state.showButton == false ? <QuizSlider /> : null}
+					{this.state.showButton === false ? <QuizSlider /> : null}
 				</Col>
 			</Row>
 		)

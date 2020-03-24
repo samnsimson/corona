@@ -1,6 +1,5 @@
 import React from "react"
 import axios from "axios"
-import { Link } from "gatsby"
 import Spinner from "../components/Spinners"
 import { Row, Col, Card, CardTitle, CardText, CardBody } from "reactstrap"
 
@@ -36,9 +35,7 @@ export default class AboutCorona extends React.Component {
 
 	fetchData = async () => {
 		try {
-			const data = await axios.get(
-				`https://coronavizserver.herokuapp.com/api/intro`
-			)
+			const data = await axios.get(`${process.env.API_URL}/intro`)
 			this.setState({
 				description: data.data,
 			})
@@ -66,9 +63,9 @@ export default class AboutCorona extends React.Component {
 										: null}
 									<small>
 										source:{" "}
-										<Link to="https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_India">
+										<a href="https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_India">
 											Wikipedia
-										</Link>
+										</a>
 									</small>
 								</CardText>
 							)}
