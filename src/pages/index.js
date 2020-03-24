@@ -11,6 +11,7 @@ import AboutCorona from "../components/AboutCorona"
 import Imgstopcovid from "../components/Images/Stopcovid"
 import Stayhome from "../components/Images/Stayhome"
 import HelplineSnippet from "../components/HelplineSnippet"
+import LineChartComponent from "../components/LineChartComponent"
 import ReactGA from "react-ga"
 
 export default class index extends Component {
@@ -40,6 +41,7 @@ export default class index extends Component {
               </Col>
               <Col md="8">
                 <Row className="mt-5">
+                  <LineChartComponent />
                   <TotalActiveCases />
                   <TotalCuredCases />
                   <TotalDeadCases />

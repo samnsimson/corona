@@ -59,14 +59,9 @@ export default class totalDataInDoughnut extends React.Component {
 
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.DoughnutData !== prevState.DoughnutData) {
-			this.setState(
-				{
-					DoughnutData: this.state.DoughnutData,
-				},
-				() => {
-					console.log(this.state.DoughnutData)
-				}
-			)
+			this.setState({
+				DoughnutData: this.state.DoughnutData,
+			})
 		}
 	}
 

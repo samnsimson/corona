@@ -49,12 +49,16 @@ export default class footer extends React.Component {
 							</a>
 							. <b>Compliants: </b> If you have any complaints regarding this
 							website please write to the email address{" "}
-							<a href="mailto:samnsimson@gmail.com">samnsimson@gmail.com</a>
+							<a href="mailto:contact@coranavisindia.com">
+								contact@coranavisindia.com
+							</a>
 						</p>
 						<p>
 							<b>Need a website?</b> Do you need a website/app built to grow you
 							business? We can help you have one. reach out to us @{" "}
-							<a href="mailto:samnsimson@gmail.com">samnsimson@gmail.com</a>
+							<a href="mailto:contact@coranavisindia.com">
+								contact@coranavisindia.com
+							</a>
 						</p>
 					</Container>
 				</Col>

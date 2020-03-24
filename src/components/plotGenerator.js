@@ -1,3 +1,5 @@
+import moment from "moment"
+
 class PlotGenerator {
 	simpleBarChart = (
 		data,
@@ -43,6 +45,29 @@ class PlotGenerator {
 			state.datasets[0].data.push(item.value)
 		})
 		return state
+	}
+
+	LineChart = (data, x, y) => {
+		let datasets = [],
+			labels = []
+		data.map(item => {
+			labels.push(moment(item.day, "MM-DD-YYYY").format("MMM-D"))
+			datasets.push(item.total)
+		})
+		let chart = {
+			labels: labels,
+			datasets: [
+				{
+					label: "No. of Corona virus cases",
+					fill: true,
+					backgroundColor: "rgba(252, 176, 66,0.6)",
+					borderColor: "rgb(170, 114, 35)",
+					pointRadius: 5,
+					data: datasets,
+				},
+			],
+		}
+		return chart
 	}
 }
 
