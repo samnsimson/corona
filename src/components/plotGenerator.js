@@ -74,7 +74,7 @@ class PlotGenerator {
 		let datasets = [],
 			labels = []
 		data.map(item => {
-			labels.push(moment(item.date).format("MMM-D"))
+			labels.push(moment(item.date, "YYYY-M-DD").format("MMM-D"))
 			datasets.push(item.confirmed)
 		})
 
