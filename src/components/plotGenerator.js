@@ -69,6 +69,30 @@ class PlotGenerator {
 		}
 		return chart
 	}
+
+	LineChartAllCountry = data => {
+		let datasets = [],
+			labels = []
+		data.map(item => {
+			labels.push(moment(item.date).format("MMM-D"))
+			datasets.push(item.confirmed)
+		})
+
+		let chart = {
+			labels: labels,
+			datasets: [
+				{
+					label: "No. of Corona virus cases",
+					fill: true,
+					backgroundColor: "rgba(252, 176, 66,0.6)",
+					borderColor: "rgb(170, 114, 35)",
+					pointRadius: 5,
+					data: datasets,
+				},
+			],
+		}
+		return chart
+	}
 }
 
 export default new PlotGenerator()

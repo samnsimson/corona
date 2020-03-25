@@ -57,7 +57,7 @@ export default class totalCuredCases extends React.Component {
 
 	render() {
 		return (
-			<Col sm="12" className="mt-3 mb-2">
+			<Col sm="12">
 				<p className="mb-0">
 					<strong>CURED CASES IN EACH STATE{"  "}</strong>
 				</p>

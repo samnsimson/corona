@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { HorizontalBar } from "react-chartjs-2"
+import { Bar } from "react-chartjs-2"
 
 export default class BarChart extends Component {
 	constructor(props) {
@@ -18,7 +18,7 @@ export default class BarChart extends Component {
 	render() {
 		return (
 			<div>
-				<HorizontalBar
+				<Bar
 					data={this.state.dataSet}
 					height={200}
 					options={{

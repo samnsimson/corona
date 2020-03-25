@@ -26,6 +26,9 @@ const Header = ({ siteTitle }) => {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
+                <NavLink href="/globaldata">Global Data</NavLink>
+              </NavItem>
+              <NavItem>
                 <NavLink href="/information">Information</NavLink>
               </NavItem>
               <NavItem>

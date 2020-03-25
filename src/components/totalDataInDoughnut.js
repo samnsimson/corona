@@ -70,7 +70,7 @@ export default class totalDataInDoughnut extends React.Component {
 
 	render() {
 		return (
-			<Row className="my-5">
+			<Row>
 				<Col xs="12">
 					<p>
 						<strong>CASE HISTORY</strong>
@@ -84,9 +84,9 @@ export default class totalDataInDoughnut extends React.Component {
 
 				<Col className="my-3">
 					{Array.isArray(this.state.DoughnutData) &&
-					this.state.DoughnutData.length ? (
-						<CaseInWords data={this.state.DoughnutData} />
-					) : null}
+					this.state.DoughnutData.length
+						? null // <CaseInWords data={this.state.DoughnutData} />
+						: null}
 				</Col>
 			</Row>
 		)
@@ -96,16 +96,6 @@ export default class totalDataInDoughnut extends React.Component {
 const CaseInWords = props => {
 	return (
 		<Card>
-			<CardHeader>
-				<small>
-					<strong>CASE HISTORY IN NUMBERS</strong>
-					<br />
-					<span style={{ fontSize: "12px" }}>
-						<b>DATE: </b>
-						{moment().format("DD/MM/YYYY")}
-					</span>
-				</small>
-			</CardHeader>
 			<CardBody className="p-0">
 				<Table responsive borderless className="mb-0">
 					<tbody>

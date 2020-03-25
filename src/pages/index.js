@@ -30,20 +30,35 @@ export default class index extends Component {
         <SEO title="Corona in India Visualized" />
         <Row>
           <Container>
-            <CoronaChecker />
+            <div className="mb-3">
+              <CoronaChecker />
+            </div>
             <Row>
-              <Col md="4">
-                <TotalDataInDoughnut />
-                <HelplineSnippet />
-                <Imgstopcovid className="mb-5" />
-                <Stayhome className="mb-5" />
+              <Col xs="12" className="my-2">
+                <Row>
+                  <Col md="4">
+                    <TotalDataInDoughnut />
+                  </Col>
+                  <Col md="8">
+                    <LineChartComponent />
+                  </Col>
+                </Row>
               </Col>
-              <Col md="8">
-                <Row className="mt-5">
-                  <LineChartComponent />
-                  <TotalActiveCases />
-                  <TotalCuredCases />
-                  <TotalDeadCases />
+              <Col xs="12" className="my-2">
+                <Row>
+                  <Col md="6">
+                    <TotalActiveCases />
+                  </Col>
+                  <Col md="6">
+                    <TotalCuredCases />
+                  </Col>
+                </Row>
+              </Col>
+              <Col xs="12" className="my-2">
+                <Row>
+                  <Col md="6">
+                    <TotalDeadCases />
+                  </Col>
                 </Row>
               </Col>
             </Row>

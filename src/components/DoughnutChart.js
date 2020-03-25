@@ -21,11 +21,11 @@ export default class DoughnutChart extends React.Component {
 		return (
 			<Doughnut
 				data={this.state.dataSet}
-				height={150}
+				height={250}
 				options={{
 					legend: {
 						display: true,
-						position: "right",
+						position: "bottom",
 					},
 					responsive: true,
 					cutoutPercentage: 35,
