@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Row, Col } from "reactstrap"
@@ -40,9 +39,6 @@ export default class information extends React.Component {
 									You are not required to get tested for COVID-19 if do not have
 									any symptoms like Cough, fever or difficulty in breathing
 								</p>
-								<Link to="" className="btn btn-warning mb-2">
-									Take an online test now
-								</Link>
 								<p>
 									If you have any of the above symptoms and have travelled to
 									any of the COVID-19 affected countries including Italy, Iran,
