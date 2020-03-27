@@ -5,7 +5,6 @@ import SEO from "../components/seo"
 import { Row, Col } from "reactstrap"
 import AboutCorona from "../components/AboutCorona"
 import Stayhome from "../components/Images/Stayhome"
-import CoronaChecker from "../components/CoronaChecker"
 import ReactGA from "react-ga"
 
 export default class information extends React.Component {
@@ -218,7 +217,6 @@ export default class information extends React.Component {
 						<hr />
 					</Col>
 				</Row>
-				<CoronaChecker />
 			</Layout>
 		)
 	}

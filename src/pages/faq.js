@@ -10,7 +10,6 @@ import {
 } from "reactstrap"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import CoronaChecker from "../components/CoronaChecker"
 import Imagehowtoprotect from "../components/Images/howtoprotect"
 import Imgstopcovid from "../components/Images/Stopcovid"
 import Stayhome from "../components/Images/Stayhome"
@@ -177,7 +176,6 @@ export default class faq extends React.Component {
 						<Imgstopcovid className="mb-5" />
 					</Col>
 				</Row>
-				<CoronaChecker />
 			</Layout>
 		)
 	}

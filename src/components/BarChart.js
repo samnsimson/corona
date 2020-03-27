@@ -6,6 +6,20 @@ export default class BarChart extends Component {
 		super(props)
 		this.state = {
 			dataSet: props.dataSet,
+			chartHeight: 200,
+			responsive: true,
+			maintainAspectRatio: true,
+			wrapperHeight: null,
+		}
+	}
+
+	componentDidMount() {
+		if (window.innerWidth < 428) {
+			this.setState({
+				chartHeight: 300,
+				wrapperHeight: 300,
+				maintainAspectRatio: false,
+			})
 		}
 	}
 	componentDidUpdate(prevProps, prevState) {
@@ -17,16 +31,17 @@ export default class BarChart extends Component {
 	}
 	render() {
 		return (
-			<div>
+			<div style={{ height: this.state.wrapperHeight }}>
 				<Bar
 					data={this.state.dataSet}
-					height={200}
+					height={this.state.chartHeight}
 					options={{
+						responsive: this.state.responsive,
+						maintainAspectRatio: this.state.maintainAspectRatio,
 						legend: {
 							display: true,
 							position: "top",
 						},
-						maintainAspectRatio: true,
 					}}
 				/>
 			</div>

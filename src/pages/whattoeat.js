@@ -33,7 +33,7 @@ export default class whattoeat extends React.Component {
 								Immune boosting foods adviced by{" "}
 								<a href="https://www.apollohospitals.com/">Apollo Hospitals</a>
 							</p>
-							<Table borderless>
+							<Table borderless responsive>
 								<thead style={{ backgroundColor: "rgba(215, 236, 251, 0.9)" }}>
 									<tr>
 										<th>FRUITS</th>

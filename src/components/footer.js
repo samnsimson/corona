@@ -6,7 +6,7 @@ export default class footer extends React.Component {
 		return (
 			<Container fluid className="pt-3">
 				<Col xs="12" className="py-3">
-					<Container style={{ fontSize: "14px" }}>
+					<Container style={{ fontSize: "12px" }}>
 						<p>
 							<b>Disclaimer: </b> <Link to="/">coronavisindia.com</Link> is a
 							privately owned website that is not owned or operated by any state
@@ -16,11 +16,9 @@ export default class footer extends React.Component {
 							in this website are not ment to infuse wrong data to its users.
 							the data are curated from various approved websites and are
 							updated on a regular basis to provide the latest information
-							available. **The contents in this website are not accurate and
+							available. **The contents in this website may not be accurate and
 							user verification with the live information/medical professional
-							is adviced. The corona virus checker result is not final and users
-							are strongly adviced to consult with a medical professional.{" "}
-							<b>Sources: </b>
+							is adviced. <b>Sources: </b>
 							<a
 								target="_blank"
 								rel="noopener noreferrer"

@@ -6,6 +6,26 @@ export default class LineChart extends React.Component {
 		super(props)
 		this.state = {
 			dataSet: props.dataSet,
+			chartHeight: 200,
+			responsive: true,
+			maintainAspectRatio: true,
+			wrapperHeight: null,
+		}
+	}
+
+	componentDidMount() {
+		console.log(window.innerWidth)
+		if (window.innerWidth < 428) {
+			this.setState(
+				{
+					chartHeight: 300,
+					wrapperHeight: 300,
+					maintainAspectRatio: false,
+				},
+				() => {
+					console.log(this.state)
+				}
+			)
 		}
 	}
 
@@ -19,12 +39,13 @@ export default class LineChart extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div style={{ height: this.state.wrapperHeight }}>
 				<Line
 					data={this.state.dataSet}
-					height={200}
+					height={this.state.chartHeight}
 					options={{
-						responsive: true,
+						responsive: this.state.responsive,
+						maintainAspectRatio: this.state.maintainAspectRatio,
 						tooltips: {
 							mode: "index",
 							intersect: false,
