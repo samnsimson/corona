@@ -131,7 +131,7 @@ export default class CaseDashboard extends React.Component {
 									style={{ minHeight: "100%" }}
 									className="d-flex  align-items-center justify-content-center"
 								>
-									<h3 className="text-primary">
+									<h3 className="text-primary mb-0">
 										<span>
 											<b>
 												{parseInt(this.state.dashboardData[0].value) +
@@ -172,7 +172,7 @@ export default class CaseDashboard extends React.Component {
 									style={{ minHeight: "100%" }}
 									className="d-flex  align-items-center justify-content-center"
 								>
-									<h3 className="text-success">
+									<h3 className="text-success mb-0">
 										<span>
 											<b>{this.state.dashboardData[2].value}</b>
 										</span>
@@ -208,7 +208,7 @@ export default class CaseDashboard extends React.Component {
 									style={{ minHeight: "100%" }}
 									className="d-flex align-items-center justify-content-center"
 								>
-									<h3 className="text-danger">
+									<h3 className="text-danger mb-0">
 										<span>
 											<b>{this.state.dashboardData[3].value}</b>
 										</span>

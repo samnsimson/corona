@@ -10,10 +10,21 @@ export default class Global extends React.Component {
 			countryData: props.countryData,
 			dataSets: [],
 			loading: true,
+			chartHeight: 200,
+			responsive: true,
+			maintainAspectRatio: true,
+			wrapperHeight: null,
 		}
 	}
 
 	componentDidMount() {
+		if (window.innerWidth < 428) {
+			this.setState({
+				chartHeight: 300,
+				wrapperHeight: 300,
+				maintainAspectRatio: false,
+			})
+		}
 		this.setState({
 			dataSets: PlotGenerator.LineChartAllCountry(this.state.countryData),
 		})
@@ -21,40 +32,44 @@ export default class Global extends React.Component {
 
 	render() {
 		return (
-			<Line
-				data={this.state.dataSets}
-				options={{
-					responsive: true,
-					tooltips: {
-						mode: "index",
-						intersect: false,
-					},
-					hover: {
-						mode: "nearest",
-						intersect: true,
-					},
-					scales: {
-						xAxes: [
-							{
-								display: true,
-								scaleLabel: {
+			<div style={{ height: this.state.wrapperHeight }}>
+				<Line
+					data={this.state.dataSets}
+					height={this.state.chartHeight}
+					options={{
+						responsive: this.state.responsive,
+						maintainAspectRatio: this.state.maintainAspectRatio,
+						tooltips: {
+							mode: "index",
+							intersect: false,
+						},
+						hover: {
+							mode: "nearest",
+							intersect: true,
+						},
+						scales: {
+							xAxes: [
+								{
 									display: true,
-									labelString: "Days",
+									scaleLabel: {
+										display: true,
+										labelString: "Days",
+									},
 								},
-							},
-						],
-						yAxes: [
-							{
-								display: true,
-								scaleLabel: {
+							],
+							yAxes: [
+								{
 									display: true,
-									labelString: "Cases",
+									scaleLabel: {
+										display: true,
+										labelString: "Cases",
+									},
 								},
-							},
-						],
-					},
-				}}
-			/>
+							],
+						},
+					}}
+				/>
+			</div>
 		)
 	}
 }

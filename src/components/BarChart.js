@@ -31,7 +31,7 @@ export default class BarChart extends Component {
 	}
 	render() {
 		return (
-			<div style={{ height: this.state.wrapperHeight }}>
+			<div style={{ height: this.state.wrapperHeight }} className="mb-5">
 				<Bar
 					data={this.state.dataSet}
 					height={this.state.chartHeight}
