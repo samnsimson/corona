@@ -1,102 +1,63 @@
 import React from "react"
 import { get } from "axios"
+import Spinner from "../components/Spinners"
 import {
 	Row,
 	Col,
 	Card,
+	CardText,
+	CardTitle,
 	Container,
 	CardDeck,
-	CardTitle,
-	CardText,
 } from "reactstrap"
-import Spinner from "../components/Spinners"
-import { Finance } from "financejs"
 
-export default class CaseDashboard extends React.Component {
+export default class GlobalDashboard extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			dashboardData: [],
-			globalDashboardData: [],
+			globalData: null,
+			loading: true,
 			curedPercentage: null,
 			deadPercentage: null,
-			growthRate: null,
 		}
 	}
 
 	componentDidMount() {
-		this.fetchDashData().then(result => {
+		this.fetchData().then(result => {
 			this.setState(
 				{
-					dashboardData: result,
+					globalData: result.data,
 				},
 				() => {
-					let cured = this.roundToTwo(
-						(parseInt(this.state.dashboardData[2].value) /
-							(parseInt(this.state.dashboardData[0].value) +
-								parseInt(this.state.dashboardData[1].value))) *
-							100
-					)
-
-					let died = this.roundToTwo(
-						(parseInt(this.state.dashboardData[3].value) /
-							(parseInt(this.state.dashboardData[0].value) +
-								parseInt(this.state.dashboardData[1].value))) *
-							100
-					)
-					this.fetchAllDataForGrowthRateCalc().then(result => {
-						let finance = new Finance()
-						let GR = finance.CAGR(
-							1,
-							parseInt(this.state.dashboardData[0].value) +
-								parseInt(this.state.dashboardData[1].value),
-							result.length
-						)
-						this.setState({
-							growthRate: GR,
-							curedPercentage: cured,
-							deadPercentage: died,
-						})
+					let cured =
+						(this.state.globalData.recovered / this.state.globalData.cases) *
+						100
+					let dead =
+						(this.state.globalData.deaths / this.state.globalData.cases) * 100
+					this.setState({
+						loading: false,
+						curedPercentage: this.roundToTwo(cured),
+						deadPercentage: this.roundToTwo(dead),
 					})
 				}
 			)
 		})
-		this.fetchGlobalDashData().then(result => {
-			this.setState({
-				globalDashboardData: result,
-			})
-		})
+	}
+
+	fetchData = async () => {
+		try {
+			return await get(process.env.GATSBY_GLOBAL_TOTAL)
+		} catch (err) {
+			console.log(err)
+		}
+	}
+
+	numberWithCommas = x => {
+		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 	}
 
 	roundToTwo = num => {
 		return +(Math.round(num + "e+2") + "e-2")
-	}
-
-	fetchDashData = async () => {
-		try {
-			const data = await get(`${process.env.GATSBY_API_URL}/sum`)
-			return data.data
-		} catch (err) {
-			console.log(err)
-		}
-	}
-
-	fetchGlobalDashData = async () => {
-		try {
-			const data = await get(`${process.env.GATSBY_GLOBAL_TOTAL}`)
-			return data.data
-		} catch (err) {
-			console.log(err)
-		}
-	}
-
-	fetchAllDataForGrowthRateCalc = async () => {
-		try {
-			const data = await get(`${process.env.GATSBY_API_URL}`)
-			return data.data
-		} catch (err) {
-			console.log(err)
-		}
 	}
 
 	style = {
@@ -123,7 +84,7 @@ export default class CaseDashboard extends React.Component {
 						className="border-0 px-0 d-flex h-100 align-items-center justify-content-between"
 						style={this.style.cardPrimary}
 					>
-						{this.state.dashboardData.length === 0 ? (
+						{this.state.loading ? (
 							<Spinner />
 						) : (
 							<Row style={{ width: "100%" }}>
@@ -131,16 +92,6 @@ export default class CaseDashboard extends React.Component {
 									<CardTitle className="text-primary mb-0">
 										Active Cases
 									</CardTitle>
-									<CardText style={{ lineHeight: "16px" }}>
-										<small style={{ fontSize: "14px" }}>
-											<span style={{ color: "rgb(159, 186, 204)" }}>
-												Average Growth Rate:
-											</span>{" "}
-											<span className="text-primary">
-												<b>{this.state.growthRate}%</b>
-											</span>
-										</small>
-									</CardText>
 								</Col>
 								<Col
 									style={{ minHeight: "100%" }}
@@ -149,8 +100,7 @@ export default class CaseDashboard extends React.Component {
 									<h3 className="text-primary mb-0">
 										<span>
 											<b>
-												{parseInt(this.state.dashboardData[0].value) +
-													parseInt(this.state.dashboardData[1].value)}
+												{this.numberWithCommas(this.state.globalData.cases)}
 											</b>
 										</span>
 									</h3>
@@ -163,7 +113,7 @@ export default class CaseDashboard extends React.Component {
 						className="border-0 px-0 d-flex h-100 align-items-center justify-content-between"
 						style={this.style.cardSuccess}
 					>
-						{this.state.dashboardData.length === 0 ? (
+						{this.state.loading ? (
 							<Spinner />
 						) : (
 							<Row style={{ width: "100%" }}>
@@ -189,7 +139,9 @@ export default class CaseDashboard extends React.Component {
 								>
 									<h3 className="text-success mb-0">
 										<span>
-											<b>{this.state.dashboardData[2].value}</b>
+											<b>
+												{this.numberWithCommas(this.state.globalData.recovered)}
+											</b>
 										</span>
 									</h3>
 								</Col>
@@ -201,7 +153,7 @@ export default class CaseDashboard extends React.Component {
 						className="border-0 px-0 d-flex h-100 align-items-center justify-content-between"
 						style={this.style.cardDanger}
 					>
-						{this.state.dashboardData.length === 0 ? (
+						{this.state.loading ? (
 							<Spinner />
 						) : (
 							<Row style={{ width: "100%" }}>
@@ -225,7 +177,9 @@ export default class CaseDashboard extends React.Component {
 								>
 									<h3 className="text-danger mb-0">
 										<span>
-											<b>{this.state.dashboardData[3].value}</b>
+											<b>
+												{this.numberWithCommas(this.state.globalData.deaths)}
+											</b>
 										</span>
 									</h3>
 								</Col>

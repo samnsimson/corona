@@ -6,6 +6,7 @@ import { Row, Col, Card, CardText, CardTitle } from "reactstrap"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Global from "../components/Global"
+import GlobalDash from "../components/GlobalDashboard"
 import ReactGA from "react-ga"
 
 export default class globaldata extends React.Component {
@@ -61,8 +62,13 @@ export default class globaldata extends React.Component {
 			<Layout>
 				<SEO title="Corona Virus - Information | Coronavisindia" />
 				<Row className="my-5">
-					<Col xs="12" className="mb-3">
-						<h4>Global confirmed cases</h4>
+					<Col xs="12">
+						<h4>GLOBAL CONFIRMED CASES</h4>
+					</Col>
+					<Col xs="12">
+						<Row>
+							<GlobalDash />
+						</Row>
 					</Col>
 					{this.state.loading ? (
 						<Spinner />
