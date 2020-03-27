@@ -11,6 +11,9 @@ import CaseTable from "../components/CaseDataInTable"
 import LineChartComponent from "../components/LineChartComponent"
 import NewCaseData from "../components/NewCasesComponent"
 import IndiaMap from "../components/IndiaMap"
+import Howtoprevent from "../components/Images/howtoprotect"
+import Stopcovid from "../components/Images/Stopcovid"
+import Stayhome from "../components/Images/Stayhome"
 import ReactGA from "react-ga"
 
 export default class index extends Component {
@@ -52,6 +55,9 @@ export default class index extends Component {
                   </Col>
                   <Col md="4">
                     <CaseTable />
+                    <Howtoprevent className="mt-2 mb-3" />
+                    <Stopcovid className="mt-2 mb-3" />
+                    <Stayhome className="mt-2 mb-3" />
                   </Col>
                 </Row>
               </Col>
