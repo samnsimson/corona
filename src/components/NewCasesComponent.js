@@ -1,36 +1,37 @@
 import React from "react"
 import axios from "axios"
+import PlotGenerator from "../components/plotGenerator"
+import BarChart from "../components/BarChart"
 import { Col } from "reactstrap"
 import moment from "moment"
-import PlotGenerator from "../components/plotGenerator"
-import LineChart from "../components/LineChart"
 import Spinner from "../components/Spinners"
 
-export default class LineChartComponent extends React.Component {
+export default class NewCasesComponent extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			lineDataArray: [],
+			newCasesData: [],
 			plotDataArray: [],
 			loading: true,
 		}
 	}
 
 	componentDidMount() {
-		this.fetchLineData().then(result => {
+		this.fetchNewCasesData().then(result => {
 			this.setState(
 				{
-					lineDataArray: result,
+					newCasesData: result,
 				},
 				() => {
 					this.setState(
 						{
-							plotDataArray: PlotGenerator.LineChart(
-								this.state.lineDataArray,
+							plotDataArray: PlotGenerator.simpleBarChart(
+								this.state.newCasesData,
 								"day",
-								"total",
-								"rgba(252, 176, 66,0.6)",
-								"rgb(170, 114, 35)"
+								"new",
+								"rgba(0, 123, 255,0.6)",
+								"#6291c4",
+								"No. of New Cases"
 							),
 						},
 						() => {
@@ -44,12 +45,12 @@ export default class LineChartComponent extends React.Component {
 		})
 	}
 
-	fetchLineData = async () => {
+	fetchNewCasesData = async () => {
 		try {
-			const data = await axios.get(`${process.env.GATSBY_API_URL}/linechart`)
+			const data = await axios.get(`${process.env.GATSBY_API_URL}/new`)
 			return data.data
 		} catch (err) {
-			console.log(err)
+			if (err) console.log(err)
 		}
 	}
 
@@ -57,7 +58,7 @@ export default class LineChartComponent extends React.Component {
 		return (
 			<Col sm="12" className="mb-3">
 				<p className="mb-0">
-					<strong>CASE GROWTH IN INDIA</strong>
+					<strong>NEW CASES IN INDIA</strong>
 				</p>
 				<p className="mb-0">
 					<small>
@@ -67,7 +68,7 @@ export default class LineChartComponent extends React.Component {
 				{this.state.loading ? (
 					<Spinner />
 				) : (
-					<LineChart dataSet={this.state.plotDataArray} />
+					<BarChart dataSet={this.state.plotDataArray} />
 				)}
 			</Col>
 		)

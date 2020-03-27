@@ -1,3 +1,9 @@
 .slideElement:focus {
 	outline: none !important;
 }
+.states .state:hover {
+	fill: #000000;
+}
+.states .state:focus {
+	fill: rgba(178, 57, 75, 1);
+}

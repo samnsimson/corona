@@ -47,7 +47,7 @@ export default class LineChart extends React.Component {
 								{
 									display: true,
 									scaleLabel: {
-										display: true,
+										display: false,
 										labelString: "Cases",
 									},
 								},

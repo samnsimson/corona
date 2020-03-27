@@ -6,11 +6,13 @@ import TotalActiveCases from "../components/totalActiveCases"
 import TotalCuredCases from "../components/totalCuredCases"
 import TotalDeadCases from "../components/totalDeadCases"
 import TotalDataInDoughnut from "../components/totalDataInDoughnut"
-import CoronaChecker from "../components/CoronaChecker"
+import CaseDashboard from "../components/CaseDashboard"
 import Imgstopcovid from "../components/Images/Stopcovid"
 import Stayhome from "../components/Images/Stayhome"
 import HelplineSnippet from "../components/HelplineSnippet"
 import LineChartComponent from "../components/LineChartComponent"
+import NewCaseData from "../components/NewCasesComponent"
+import IndiaMap from "../components/IndiaMap"
 import ReactGA from "react-ga"
 
 export default class index extends Component {
@@ -30,33 +32,38 @@ export default class index extends Component {
         <SEO title="Corona in India Visualized" />
         <Row>
           <Container>
-            <div className="mb-3">
-              <CoronaChecker />
-            </div>
+            <Row>
+              <CaseDashboard />
+            </Row>
             <Row>
               <Col xs="12" className="my-2">
                 <Row>
-                  <Col md="4">
-                    <TotalDataInDoughnut />
-                  </Col>
                   <Col md="8">
                     <LineChartComponent />
                   </Col>
+                  <Col md="4">
+                    <TotalDataInDoughnut />
+                  </Col>
                 </Row>
-              </Col>
-              <Col xs="12" className="my-2">
                 <Row>
-                  <Col md="6">
+                  <Col md="8">
+                    <NewCaseData />
+                  </Col>
+                  <Col md="4"></Col>
+                </Row>
+                <Row>
+                  <Col md="8">
                     <TotalActiveCases />
                   </Col>
-                  <Col md="6">
+                  <Col md="4"></Col>
+                </Row>
+                <Row>
+                  <Col md="8">
                     <TotalCuredCases />
                   </Col>
                 </Row>
-              </Col>
-              <Col xs="12" className="my-2">
                 <Row>
-                  <Col md="6">
+                  <Col md="8">
                     <TotalDeadCases />
                   </Col>
                 </Row>

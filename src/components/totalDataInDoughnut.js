@@ -73,13 +73,19 @@ export default class totalDataInDoughnut extends React.Component {
 			<Row>
 				<Col xs="12">
 					<p>
-						<strong>CASE HISTORY</strong>
+						<strong>CASE DISTRIBUTION</strong>
 					</p>
 				</Col>
 				{this.state.loading ? (
 					<Spinner />
 				) : (
-					<DoughnutChart dataSet={this.state.plotdataArray} />
+					<Col
+						sm="12"
+						className="d-flex align-items-center"
+						style={{ minHeight: "445px" }}
+					>
+						<DoughnutChart dataSet={this.state.plotdataArray} />
+					</Col>
 				)}
 
 				<Col className="my-3">
