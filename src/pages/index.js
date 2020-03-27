@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Link } from "gatsby"
 import { Container, Row, Col } from "reactstrap"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -55,6 +56,12 @@ export default class index extends Component {
                   </Col>
                   <Col md="4">
                     <CaseTable />
+                    <Link
+                      to="/globaldata"
+                      className="btn btn-warning btn-block my-3"
+                    >
+                      Check world wide data
+                    </Link>
                     <Howtoprevent className="mt-2 mb-3" />
                     <Stopcovid className="mt-2 mb-3" />
                     <Stayhome className="mt-2 mb-3" />
