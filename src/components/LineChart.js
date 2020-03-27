@@ -14,7 +14,6 @@ export default class LineChart extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log(window.innerWidth)
 		if (window.innerWidth < 428) {
 			this.setState(
 				{

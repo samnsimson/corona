@@ -7,9 +7,7 @@ import TotalCuredCases from "../components/totalCuredCases"
 import TotalDeadCases from "../components/totalDeadCases"
 import TotalDataInDoughnut from "../components/totalDataInDoughnut"
 import CaseDashboard from "../components/CaseDashboard"
-import Imgstopcovid from "../components/Images/Stopcovid"
-import Stayhome from "../components/Images/Stayhome"
-import HelplineSnippet from "../components/HelplineSnippet"
+import CaseTable from "../components/CaseDataInTable"
 import LineChartComponent from "../components/LineChartComponent"
 import NewCaseData from "../components/NewCasesComponent"
 import IndiaMap from "../components/IndiaMap"
@@ -48,23 +46,12 @@ export default class index extends Component {
                 <Row>
                   <Col md="8">
                     <NewCaseData />
-                  </Col>
-                  <Col md="4"></Col>
-                </Row>
-                <Row>
-                  <Col md="8">
                     <TotalActiveCases />
-                  </Col>
-                  <Col md="4"></Col>
-                </Row>
-                <Row>
-                  <Col md="8">
                     <TotalCuredCases />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col md="8">
                     <TotalDeadCases />
+                  </Col>
+                  <Col md="4">
+                    <CaseTable />
                   </Col>
                 </Row>
               </Col>
