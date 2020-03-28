@@ -35,6 +35,13 @@ export default class index extends Component {
         <Row>
           <Container>
             <Row>
+              <div className="alert alert-warning">
+                <p>
+                  The website is closed for maintenance. The data in the website
+                  now is not updated yet. Please come back in some time. Thank
+                  you.
+                </p>
+              </div>
               <CaseDashboard />
             </Row>
             <Row>
