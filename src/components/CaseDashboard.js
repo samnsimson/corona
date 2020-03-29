@@ -32,24 +32,22 @@ export default class CaseDashboard extends React.Component {
 				},
 				() => {
 					let cured = this.roundToTwo(
-						(parseInt(this.state.dashboardData[2].value) /
-							(parseInt(this.state.dashboardData[0].value) +
-								parseInt(this.state.dashboardData[1].value))) *
+						(parseInt(this.state.dashboardData[1].value) /
+							parseInt(this.state.dashboardData[0].value)) *
 							100
 					)
 
 					let died = this.roundToTwo(
-						(parseInt(this.state.dashboardData[3].value) /
-							(parseInt(this.state.dashboardData[0].value) +
-								parseInt(this.state.dashboardData[1].value))) *
+						(parseInt(this.state.dashboardData[2].value) /
+							parseInt(this.state.dashboardData[0].value)) *
 							100
 					)
+
 					this.fetchAllDataForGrowthRateCalc().then(result => {
 						let finance = new Finance()
 						let GR = finance.CAGR(
 							1,
-							parseInt(this.state.dashboardData[0].value) +
-								parseInt(this.state.dashboardData[1].value),
+							parseInt(this.state.dashboardData[0].value),
 							result.length
 						)
 						this.setState({
@@ -148,10 +146,7 @@ export default class CaseDashboard extends React.Component {
 								>
 									<h3 className="text-primary mb-0">
 										<span>
-											<b>
-												{parseInt(this.state.dashboardData[0].value) +
-													parseInt(this.state.dashboardData[1].value)}
-											</b>
+											<b>{parseInt(this.state.dashboardData[0].value)}</b>
 										</span>
 									</h3>
 								</Col>
@@ -189,7 +184,7 @@ export default class CaseDashboard extends React.Component {
 								>
 									<h3 className="text-success mb-0">
 										<span>
-											<b>{this.state.dashboardData[2].value}</b>
+											<b>{this.state.dashboardData[1].value}</b>
 										</span>
 									</h3>
 								</Col>
@@ -225,7 +220,7 @@ export default class CaseDashboard extends React.Component {
 								>
 									<h3 className="text-danger mb-0">
 										<span>
-											<b>{this.state.dashboardData[3].value}</b>
+											<b>{this.state.dashboardData[2].value}</b>
 										</span>
 									</h3>
 								</Col>
