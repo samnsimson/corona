@@ -35,8 +35,8 @@ export default class totalDataInDoughnut extends React.Component {
 						{
 							plotdataArray: PlotGenerator.DoughnutChart(
 								this.state.DoughnutData,
-								["#56b2ef", "#FFD54F", "#499B9B", "#CC5B70"],
-								["#1a7dbf", "#c48900", "#0E5E5E", "#893746"],
+								["#56b2ef", "#499B9B", "#CC5B70"],
+								["#1a7dbf", "#0E5E5E", "#893746"],
 								"Case History"
 							),
 						},
