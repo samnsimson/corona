@@ -29,6 +29,14 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://www.coronavisindia.com",
+        sitemap: "https://www.coronavisindia.com/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

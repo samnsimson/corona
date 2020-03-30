@@ -11,6 +11,7 @@ import {
 } from "reactstrap"
 import Spinner from "../components/Spinners"
 import { Finance } from "financejs"
+import moment from "moment"
 
 export default class CaseDashboard extends React.Component {
 	constructor(props) {
@@ -115,6 +116,13 @@ export default class CaseDashboard extends React.Component {
 	render() {
 		return (
 			<Container fluid className="my-5">
+				<h1 className="mb-3" style={{ fontSize: "1rem", fontWeight: "bold" }}>
+					CORONA VIRUS IN INDIA - CASE DATA
+					<br />
+					<span style={{ fontSize: "14px", fontWeight: "normal" }}>
+						<strong>DATE:</strong> {moment().format("DD/MM/YYYY")}
+					</span>
+				</h1>
 				<CardDeck>
 					<Card
 						body

@@ -30,6 +30,7 @@ const Image = props => {
     <Img
       fluid={logo.placeholderImage.childImageSharp.fluid}
       className={props.className}
+      alt="Stop COVID-19"
     />
   )
 }

@@ -32,6 +32,7 @@ const Image = props => {
     <Img
       fluid={logo.placeholderImage.childImageSharp.fluid}
       className={props.className}
+      alt="How to wash hands"
     />
   )
 }
