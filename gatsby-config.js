@@ -3,6 +3,7 @@ module.exports = {
     title: `Corona in India Visualized`,
     description: `All information about the Corona Virus pandemic in India is visualized here in this website`,
     author: `@samsimson`,
+    siteUrl: `https://www.coronavisindia.com`,
     keywords: [
       "coronavirus",
       "coronavirus india",
@@ -24,6 +25,7 @@ module.exports = {
     ],
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
     {
