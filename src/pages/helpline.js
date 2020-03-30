@@ -13,10 +13,15 @@ export default class helpline extends React.Component {
 	render() {
 		return (
 			<Layout>
-				<SEO title="Helpline - Corona in India Visualized"></SEO>
+				<SEO
+					title="Helpline | Corona in India Visualized"
+					description="Government of India and its states has provided a list of helpline numbers to know and get information about the pandemic in india. View the list of phone numbers"
+				></SEO>
 				<Row className="my-5">
 					<Col xs="12" className="pb-3">
-						<h4>Helpline Numbers for each state</h4>
+						<h1 style={{ fontSize: "1rem" }}>
+							<b>HELPLINE NUMBERS FOR EACH STATE</b>
+						</h1>
 					</Col>
 					<Col md="6">
 						<Table borderless>

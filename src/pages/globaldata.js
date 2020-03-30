@@ -60,10 +60,15 @@ export default class globaldata extends React.Component {
 	render() {
 		return (
 			<Layout>
-				<SEO title="Corona Virus - Information | Coronavisindia" />
+				<SEO
+					title="Coronavisindia | Global data"
+					description="As new corono virus cases increases exponentially day by day, know every affected countries status and where it stands."
+				/>
 				<Row className="my-5">
 					<Col xs="12">
-						<h4>GLOBAL CONFIRMED CASES</h4>
+						<h1 style={{ fontSize: "1rem" }}>
+							<b>GLOBAL CONFIRMED CASES</b>
+						</h1>
 					</Col>
 					<Col xs="12">
 						<Row>

@@ -50,9 +50,10 @@ export default class AboutCorona extends React.Component {
 				<Col sm="12">
 					<Card style={this.style.cards}>
 						<CardBody>
-							<CardTitle>
-								<strong>About CORONA (COVID-19)</strong>
-							</CardTitle>
+							<h1 className="py-2" style={{ fontSize: "1rem" }}>
+								<b>ABOUT CORONA (COVID-19)</b>
+							</h1>
+
 							{this.state.loading ? (
 								<Spinner />
 							) : (

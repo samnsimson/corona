@@ -13,11 +13,16 @@ export default class whattoeat extends React.Component {
 	render() {
 		return (
 			<Layout>
-				<SEO title="What to eat? - Corona in India Visualized" />
+				<SEO
+					title="What to eat? | Corona in India Visualized"
+					description="Our immune systems may have blind spots. This might mean that our immune response doesn’t recognise certain bugs or the bugs have sneaky evasion strategies"
+				/>
 				<Container>
 					<Row className="mt-5 mb-3">
 						<Col sm="12">
-							<h4>What to eat to boost your immune response</h4>
+							<h1 className="py-2" style={{ fontSize: "1rem" }}>
+								<b>What to eat to boost your immune response?</b>
+							</h1>
 							<p>
 								Our immune systems may have blind spots. This might mean that
 								our immune response doesn’t recognise certain bugs or the bugs

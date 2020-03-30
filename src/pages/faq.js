@@ -32,10 +32,15 @@ export default class faq extends React.Component {
 	render() {
 		return (
 			<Layout>
-				<SEO title="Frequently asked questions about CORONA Virus" />
+				<SEO
+					title="Frequently asked questions"
+					description="Read all the frequently asked questions about CORONA Virus to know the fact and fiction about the novel corona virus"
+				/>
 				<Row className="mt-5">
 					<Col xs="12">
-						<h4 className="py-2">FREQUENTLY ASKED QUESTIONS</h4>
+						<h1 className="py-2" style={{ fontSize: "1rem" }}>
+							<b>FREQUENTLY ASKED QUESTIONS</b>
+						</h1>
 					</Col>
 					<Col md="8">
 						<CardDeck className="mb-5">

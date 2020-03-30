@@ -14,7 +14,10 @@ export default class information extends React.Component {
 	render() {
 		return (
 			<Layout>
-				<SEO title="Corona Virus - Information | Coronavisindia" />
+				<SEO
+					title="Information | Corona in India Visualized"
+					description="The 2019–20 coronavirus pandemic is an ongoing pandemic of coronavirus disease 2019 (COVID-19), caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). The outbreak was first identified in Wuhan, Hubei, China, in December 2019"
+				/>
 				<Row className="my-5">
 					<Col>
 						<AboutCorona />

@@ -5,7 +5,10 @@ import SEO from "../components/seo"
 
 const NotFoundPage = () => (
 	<Layout>
-		<SEO title="404: Not found" />
+		<SEO
+			title="404: Not found"
+			description="404: Page not found | CronaVisIndia"
+		/>
 		<div
 			id="notfound"
 			className="d-flex h-100 align-items-center justify-content-center"
